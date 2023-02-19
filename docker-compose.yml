@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    command: tail -f /dev/null
+    ports:
+      - 3000:3000
+    environment:
+      WORDPRESS_API_URL: 'https://mokubo.website/wp-json/wp/v2'
+      DOMAIN: 'masahiro.me'
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/build
